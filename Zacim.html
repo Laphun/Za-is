@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>For Moniņa</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #2c0316, #4a0723);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .message {
+            text-align: center;
+            color: #ffd9e6;
+            padding: 3rem;
+            border-radius: 20px;
+            background: rgba(74, 7, 35, 0.6);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+            max-width: 600px;
+            margin: 20px;
+            border: 2px solid #ff8fb1;
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        img {
+            width: 200px;  /* You can adjust the size of the image */
+            margin-top: 1rem;
+        }
+
+        .rose {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #ff1f5a;
+            clip-path: path('M20,0 C20,0 40,20 20,40 C0,20 20,0 20,0');
+            animation: roseRotate 10s linear infinite;
+            opacity: 0.6;
+        }
+        
+        .rose::before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 20px;
+            background: #2d5a27;
+            bottom: -18px;
+            left: 16px;
+            transform: rotate(0deg);
+        }
+        
+        .sparkle {
+            position: absolute;
+            background: #ff8fb1;
+            border-radius: 50%;
+            animation: sparkle 2s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes sparkle {
+            0% { transform: scale(0) rotate(0deg); opacity: 0; }
+            50% { transform: scale(1) rotate(180deg); opacity: 0.8; }
+            100% { transform: scale(0) rotate(360deg); opacity: 0; }
+        }
+        
+        @keyframes roseRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .petal {
+            position: absolute;
+            background: #ff1f5a;
+            border-radius: 50%;
+            animation: fall 6s linear infinite;
+            opacity: 0.4;
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.4; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <h1>Es tevi ļoti mīlu Moniņ</h1>
+        <p style="font-size: 1.5rem;">Priecīgu un spēcīgu, daudz veselības un mīlestības Jauno gadu ✨✨🎉🎉💕💕💕💕❤❤❤</p>
+        <!-- Add your Kuromi image here -->
+        <img src="C:/Users/deivi/Documents/kurome.jpg" alt="Kuromi">
+    </div>
+
+    <script>
+        function createSparkles() {
+            const body = document.querySelector('body');
+            for(let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.width = Math.random() * 6 + 'px';
+                sparkle.style.height = sparkle.style.width;
+                sparkle.style.left = Math.random() * 100 + 'vw';
+                sparkle.style.top = Math.random() * 100 + 'vh';
+                sparkle.style.animationDelay = Math.random() * 2 + 's';
+                body.appendChild(sparkle);
+            }
+        }
+
+        function createRoses() {
+            const body = document.querySelector('body');
+            for(let i = 0; i < 8; i++) {
+                const rose = document.createElement('div');
+                rose.className = 'rose';
+                rose.style.left = Math.random() * 90 + 5 + 'vw';
+                rose.style.top = Math.random() * 90 + 5 + 'vh';
+                rose.style.animationDelay = Math.random() * 2 + 's';
+                body.appendChild(rose);
+            }
+        }
+
+        function createPetals() {
+            const body = document.querySelector('body');
+            for(let i = 0; i < 30; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.style.width = Math.random() * 10 + 5 + 'px';
+                petal.style.height = petal.style.width;
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.animationDelay = Math.random() * 6 + 's';
+                body.appendChild(petal);
+            }
+        }
+
+        createSparkles();
+        createRoses();
+        createPetals();
+    </script>
+</body>
+</html>
